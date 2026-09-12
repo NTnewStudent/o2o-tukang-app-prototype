@@ -23,7 +23,7 @@ Local: open `index.html` or `app/index.html` (hash router, no build step).
 - [x] App screens: home, mall, product, cart, checkout/pay, membership, orders + delivery timeline, tukang home, book, quote compare, craftsman profile, job tracking, ratings, account
 - [x] EN + ID toggle (`app/js/i18n.js`) on primary flows
 - [x] Interactive mind map: member purchase → pay → tier price → delivery feedback → tukang install/repair
-- [x] GitHub Pages from `/` on `main` (workflow: `.github/workflows/pages.yml`)
+- [x] Public GitHub Pages URLs verified live (no login): hub, `/app/`, mind map. Project-repo Actions workflow is in `.github/workflows/pages.yml`; the live site is also published at the same paths via the user Pages repo `NTnewStudent.github.io`.
 
 ## How to click the happy path
 
