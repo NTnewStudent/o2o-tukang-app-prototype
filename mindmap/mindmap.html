@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BataTukang — business-flow mind map</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1c1917; --brick: #c2410c; --teal: #0f766e; --gold: #d97706;
+      --paper: #fffbf5; --cream: #fff7ed; --line: #fed7aa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 400px at 0% 0%, #fdba74, transparent 50%),
+        radial-gradient(800px 400px at 100% 0%, #99f6e4, transparent 50%),
+        #292524;
+      min-height: 100vh;
+    }
+    header {
+      max-width: 1100px; margin: 0 auto; padding: 28px 20px 8px; color: #fff7ed;
+    }
+    header a { color: #fed7aa; font-weight: 700; text-decoration: none; }
+    h1 { margin: 8px 0 6px; letter-spacing: -0.03em; }
+    .lead { opacity: 0.88; max-width: 720px; line-height: 1.5; }
+    .toolbar {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+    }
+    .toolbar button, .lang {
+      border: 0; border-radius: 999px; padding: 8px 12px; font-weight: 700; cursor: pointer;
+    }
+    .lang { background: #fff; color: #1c1917; }
+    .lang.active { background: #1c1917; color: #fff; outline: 2px solid #fed7aa; }
+    .hint { font-size: 13px; opacity: 0.8; }
+
+    .board {
+      max-width: 1100px; margin: 0 auto 40px; padding: 8px 16px 40px;
+    }
+    .spine {
+      display: grid; gap: 14px;
+    }
+    .node {
+      background: var(--paper);
+      border-radius: 20px;
+      border: 1px solid rgba(253,186,116,.5);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      overflow: hidden;
+    }
+    .node header.nh {
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      padding: 14px 16px; cursor: pointer; color: #fff;
+    }
+    .node.n1 header.nh { background: linear-gradient(135deg,#c2410c,#ea580c); }
+    .node.n2 header.nh { background: linear-gradient(135deg,#b45309,#d97706); }
+    .node.n3 header.nh { background: linear-gradient(135deg,#0f766e,#14b8a6); }
+    .node.n4 header.nh { background: linear-gradient(135deg,#0369a1,#38bdf8); }
+    .node.n5 header.nh { background: linear-gradient(135deg,#1e1b4b,#7c3aed); }
+    .node.n6 header.nh { background: linear-gradient(135deg,#44403c,#78716c); }
+    .nh h2 { margin: 0; font-size: 17px; }
+    .nh small { opacity: .9; }
+    .body { display: none; padding: 14px 16px 16px; background: var(--cream); }
+    .node.open .body { display: block; }
+    .kids { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
+    .kid {
+      background: #fff; border-radius: 14px; padding: 10px 12px; border: 1px solid var(--line);
+      font-size: 13px; line-height: 1.4;
+    }
+    .kid b { display: block; margin-bottom: 4px; }
+    .arrow { text-align: center; color: #fed7aa; font-weight: 800; letter-spacing: 2px; }
+    .legend { color: #ffedd5; font-size: 12px; margin-top: 18px; }
+    .legend code { background: #1c1917; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html">← BataTukang hub</a>
+    · <a href="../app/">Open App prototype</a>
+    <h1 id="title">Business-flow mind map</h1>
+    <p class="lead" id="lead">Member purchase → pay → tier price → delivery feedback → tukang install/repair. Click a stage to expand. Sources: Tukang.com, 万师傅, CRMEB multi-store.</p>
+    <div class="toolbar">
+      <button class="lang active" data-lang="en" type="button">EN</button>
+      <button class="lang" data-lang="id" type="button">ID</button>
+      <button type="button" id="expand">Expand all</button>
+      <button type="button" id="collapse">Collapse all</button>
+      <span class="hint" id="hint">Click nodes · spine is the happy path</span>
+    </div>
+  </header>
+  <div class="board" id="board"></div>
+  <script>
+    const COPY = {
+      en: {
+        title: "Business-flow mind map",
+        lead: "Member purchase → pay → tier price → delivery feedback → tukang install/repair. Click a stage to expand. Sources: Tukang.com, 万师傅, CRMEB multi-store.",
+        hint: "Click nodes · spine is the happy path",
+        expand: "Expand all", collapse: "Collapse all",
+        nodes: [
+          {
+            k: "1 · Member enters",
+            s: "One identity · CRMEB shop-member + store LBS",
+            kids: [
+              ["Home dual door", "Mall aisle or Tukang specialization — not two apps."],
+              ["Tier badge", "Regular / Silver / Gold / Platinum on every price."],
+              ["Nearest superstore", "Kebayoran · Bekasi · Tangerang as 提货点."],
+              ["Language", "EN ↔ ID chrome toggle, same cart."]
+            ]
+          },
+          {
+            k: "2 · Purchase + tier price",
+            s: "CRMEB: member price first, then coupon / points",
+            kids: [
+              ["PDP math", "List struck through · Gold −10% live."],
+              ["Cart", "City delivery vs pickup · geofence 8 km."],
+              ["Gold waive", "Same-day fee 0 if cart ≥ Rp 150k."],
+              ["SKU verb", "Installable SKUs carry tile / plumb / elec."]
+            ]
+          },
+          {
+            k: "3 · Pay",
+            s: "Split rails: goods settle now · jobs escrow",
+            kids: [
+              ["QRIS / VA / card", "Instant capture for GoodsOrder."],
+              ["Saldo Bata", "Wallet residual (Tukang Saldo pattern)."],
+              ["COD / cash", "Pickup or harian after-complete only."],
+              ["Escrow", "Service money held until accept (万师傅 担保 + Deposit Borongan)."]
+            ]
+          },
+          {
+            k: "4 · Delivery feedback",
+            s: "CRMEB 同城配送 timeline — store-named events",
+            kids: [
+              ["Paid", "Member price locked on the order."],
+              ["Packed at store", "Aisle pick at named superstore."],
+              ["Courier assigned", "Self-fleet or GoSend analogue."],
+              ["Out / delivered", "Live status · then CTA to book tukang."]
+            ]
+          },
+          {
+            k: "5 · Tukang install / repair",
+            s: "Tukang.com funnel × 万师傅 modes",
+            kids: [
+              ["Fixed / harian", "一口价 · 6h clean · from Rp 150k jasa."],
+              ["Quote compare", "2h minat · pick in 60m · 3 quotes."],
+              ["Project + RAB", "Survey → in-app RAB → staged release."],
+              ["Evidence", "Completion photos unlock escrow."]
+            ]
+          },
+          {
+            k: "6 · After-sales / loop back",
+            s: "Retensi + 先行赔付-style + buy more materials",
+            kids: [
+              ["Rate", "Only after Completed (Tukang FAQ)."],
+              ["Retensi", "24h daily · 7–30d project complaints."],
+              ["Re-service", "Vendor swap mid-job · Platinum priority."],
+              ["RAB → Mall", "Mitra materials list drops into cart."]
+            ]
+          }
+        ]
+      },
+      id: {
+        title: "Peta alur bisnis",
+        lead: "Pembelian member → bayar → harga tingkat → umpan balik kiriman → pasang/perbaiki tukang. Ketuk tahap untuk membuka. Sumber: Tukang.com, 万师傅, CRMEB multi-toko.",
+        hint: "Ketuk simpul · tulang punggung = alur bahagia",
+        expand: "Buka semua", collapse: "Tutup semua",
+        nodes: [
+          {
+            k: "1 · Member masuk",
+            s: "Satu identitas · member toko CRMEB + LBS",
+            kids: [
+              ["Pintu ganda beranda", "Lorong mal atau spesialisasi tukang — bukan dua aplikasi."],
+              ["Lencana tingkat", "Reguler / Silver / Gold / Platinum di setiap harga."],
+              ["Superstore terdekat", "Kebayoran · Bekasi · Tangerang sebagai titik ambil."],
+              ["Bahasa", "Sakelar EN ↔ ID, keranjang sama."]
+            ]
+          },
+          {
+            k: "2 · Beli + harga tingkat",
+            s: "CRMEB: harga member dulu, lalu kupon / poin",
+            kids: [
+              ["Hitung PDP", "Harga normal dicoret · Gold −10% langsung."],
+              ["Keranjang", "Kirim kota vs ambil toko · pagar 8 km."],
+              ["Bebas ongkir Gold", "Same-day 0 jika belanja ≥ Rp 150rb."],
+              ["Kata kerja SKU", "SKU terpasang membawa tile / ledeng / listrik."]
+            ]
+          },
+          {
+            k: "3 · Bayar",
+            s: "Rel terpisah: barang lunas sekarang · jasa escrow",
+            kids: [
+              ["QRIS / VA / kartu", "Tangkap instan untuk pesanan barang."],
+              ["Saldo Bata", "Sisa dompet (pola Saldo Tukang)."],
+              ["COD / tunai", "Hanya ambil toko atau harian setelah selesai."],
+              ["Escrow", "Dana jasa ditahan sampai diterima (担保 + Deposit Borongan)."]
+            ]
+          },
+          {
+            k: "4 · Umpan balik kiriman",
+            s: "Linimasa 同城配送 CRMEB — peristiwa bernama toko",
+            kids: [
+              ["Dibayar", "Harga member terkunci."],
+              ["Dikemas di toko", "Ambil lorong superstore bernama."],
+              ["Kurir ditugaskan", "Armada sendiri atau analog GoSend."],
+              ["Dikirim / tiba", "Status langsung · lalu CTA pesan tukang."]
+            ]
+          },
+          {
+            k: "5 · Pasang / perbaiki tukang",
+            s: "Corong Tukang.com × mode 万师傅",
+            kids: [
+              ["Harian / tetap", "一口价 · 6 jam bersih · dari Rp 150rb jasa."],
+              ["Bandingkan penawaran", "Minat 2 jam · pilih 60 mnt · 3 kuotasi."],
+              ["Proyek + RAB", "Survei → RAB di aplikasi → cair bertahap."],
+              ["Bukti", "Foto selesai membuka escrow."]
+            ]
+          },
+          {
+            k: "6 · Purna jual / putar balik",
+            s: "Retensi + gaya 先行赔付 + beli material lagi",
+            kids: [
+              ["Rating", "Hanya setelah Completed (FAQ Tukang)."],
+              ["Retensi", "Komplain 24 jam harian · 7–30 hari proyek."],
+              ["Kerja ulang", "Ganti vendor di tengah · prioritas Platinum."],
+              ["RAB → Mal", "Daftar bahan mitra masuk keranjang."]
+            ]
+          }
+        ]
+      }
+    };
+
+    let lang = "en";
+    const board = document.getElementById("board");
+
+    function paint() {
+      const c = COPY[lang];
+      document.getElementById("title").textContent = c.title;
+      document.getElementById("lead").textContent = c.lead;
+      document.getElementById("hint").textContent = c.hint;
+      document.getElementById("expand").textContent = c.expand;
+      document.getElementById("collapse").textContent = c.collapse;
+      document.querySelectorAll(".lang").forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
+      board.innerHTML = `<div class="spine">${c.nodes.map((n, i) => `
+        <article class="node n${i + 1} ${i < 2 ? "open" : ""}">
+          <header class="nh"><div><h2>${n.k}</h2><small>${n.s}</small></div><span>▾</span></header>
+          <div class="body"><div class="kids">${n.kids.map(([t, d]) => `<div class="kid"><b>${t}</b>${d}</div>`).join("")}</div></div>
+        </article>
+        ${i < c.nodes.length - 1 ? `<div class="arrow">↓</div>` : ""}
+      `).join("")}
+      <p class="legend">Docs: <code>docs/product-blueprint.md</code> · <code>docs/ia-map.md</code> · research in <code>docs/research/</code></p>
+      </div>`;
+      board.querySelectorAll(".nh").forEach((h) => {
+        h.addEventListener("click", () => h.parentElement.classList.toggle("open"));
+      });
+    }
+
+    document.querySelectorAll(".lang").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; paint(); }));
+    document.getElementById("expand").onclick = () => board.querySelectorAll(".node").forEach((n) => n.classList.add("open"));
+    document.getElementById("collapse").onclick = () => board.querySelectorAll(".node").forEach((n) => n.classList.remove("open"));
+    paint();
+  </script>
+</body>
+</html>

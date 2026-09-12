@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>BataTukang — App prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/phone.css" />
+  <link rel="stylesheet" href="css/screens.css" />
+</head>
+<body>
+  <div class="stage">
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="status-bar">
+          <span id="clock">09:41</span>
+          <div class="lang-toggle">
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="id">ID</button>
+          </div>
+          <span>▣ ▭ ⚡</span>
+        </div>
+        <div class="app-body" id="app-body"></div>
+        <nav class="tabbar" id="tabbar">
+          <button class="tab active" data-tab="home"><span class="ic">⌂</span><span data-i18n="tab.home">Home</span></button>
+          <button class="tab" data-tab="mall"><span class="ic">▣</span><span data-i18n="tab.mall">Mall</span></button>
+          <button class="tab" data-tab="tukang"><span class="ic">⚒</span><span data-i18n="tab.tukang">Tukang</span></button>
+          <button class="tab" data-tab="orders"><span class="ic">▤</span><span data-i18n="tab.orders">Orders</span></button>
+          <button class="tab" data-tab="account"><span class="ic">☺</span><span data-i18n="tab.account">Account</span></button>
+        </nav>
+        <div class="toast" id="toast"></div>
+      </div>
+    </div>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/screens.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

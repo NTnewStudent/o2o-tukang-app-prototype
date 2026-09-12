@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BataTukang — O2O mall + tukang prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#1c1917; --brick:#c2410c; --teal:#0f766e; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1000px 480px at -10% -20%, #fdba74, transparent 50%),
+        radial-gradient(900px 480px at 110% 0%, #5eead4, transparent 46%),
+        #fff7ed;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 48px 20px 80px; }
+    .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brick); }
+    h1 { font-size: clamp(32px, 6vw, 52px); letter-spacing: -0.04em; margin: 8px 0 12px; }
+    .lead { font-size: 18px; line-height: 1.5; max-width: 640px; color: #44403c; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 32px 0; }
+    a.card {
+      display: block; text-decoration: none; color: inherit;
+      background: #fff; border-radius: 20px; padding: 20px;
+      border: 1px solid #fed7aa; box-shadow: 0 12px 30px rgba(194,65,12,.08);
+    }
+    a.card strong { display: block; font-size: 20px; margin-bottom: 6px; }
+    a.card span { color: #78716c; font-size: 14px; line-height: 1.45; }
+    a.card.primary { background: linear-gradient(160deg, #c2410c, #ea580c 60%, #0f766e); color: #fff; border: 0; }
+    a.card.primary span { color: rgba(255,255,255,.88); }
+    h2 { margin: 36px 0 10px; }
+    ul.check { padding-left: 0; list-style: none; }
+    ul.check li { padding: 8px 0 8px 28px; position: relative; border-bottom: 1px solid #ffedd5; }
+    ul.check li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+    .docs a { color: var(--teal); font-weight: 700; }
+    footer { margin-top: 40px; font-size: 13px; color: #78716c; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">Public prototype · EN + Bahasa Indonesia</div>
+    <h1>BataTukang</h1>
+    <p class="lead">Integrated O2O building-materials supermarket + online mall + membership pricing + live delivery + Tukang / 万师傅-style installer marketplace. App-only HTML prototype fused conceptually with CRMEB multi-store commerce objects.</p>
+    <div class="cards">
+      <a class="card primary" href="app/">
+        <strong>Open App prototype</strong>
+        <span>Phone-framed SPA · mall, pay, membership, delivery timeline, book tukang, quotes, job track, ratings.</span>
+      </a>
+      <a class="card" href="mindmap/mindmap.html">
+        <strong>Business-flow mind map</strong>
+        <span>Interactive spine: member buy → pay → tier price → delivery feedback → install/repair.</span>
+      </a>
+      <a class="card" href="docs/product-blueprint.md">
+        <strong>Product blueprint</strong>
+        <span>How the three sources merge into one IA and two order types.</span>
+      </a>
+    </div>
+    <h2>Research</h2>
+    <p class="docs">
+      <a href="docs/research/tukang.md">Tukang.com</a> ·
+      <a href="docs/research/wanshifu.md">万师傅 (Wanshifu)</a> ·
+      <a href="docs/research/crmeb-multistore.md">CRMEB multi-store</a> ·
+      <a href="docs/ia-map.md">IA map</a>
+    </p>
+    <h2>Coverage vs brief</h2>
+    <ul class="check">
+      <li>Deep research on Tukang roles, booking, quotes, lifecycle, ratings, payments, trust</li>
+      <li>万师傅 categories, dispatch modes, escrow, after-sales / 先行赔付</li>
+      <li>CRMEB store model, member levels, member-price-first, pickup + city delivery</li>
+      <li>App-only interactive prototype, ~390px phone chrome, bottom tabs, polished UI</li>
+      <li>Bilingual English + Indonesian with in-app toggle (primary flows fully keyed)</li>
+      <li>Interactive HTML mind map of the fused business flow</li>
+      <li>Public GitHub Pages URLs on this hub, <code>/app/</code>, and <code>/mindmap/mindmap.html</code></li>
+    </ul>
+    <footer>Repo: github.com/NTnewStudent/o2o-tukang-app-prototype · Not affiliated with Tukang.com, 万师傅, or CRMEB.</footer>
+  </div>
+</body>
+</html>
