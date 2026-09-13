@@ -117,22 +117,13 @@ Orders tab is a **union query** over GoodsOrder ∪ ServiceOrder sorted by `upda
 ## 7. Prototype route list
 
 ```
-#/home
-#/mall
-#/product/:id
-#/cart
-#/checkout
-#/pay
-#/membership
-#/orders
-#/order/:id
-#/tukang
-#/book/:service
-#/quotes
-#/craftsman/:id
-#/job/:id
-#/rate/:id
-#/account
+#/home #/search #/mall #/category/:id #/store/:id #/product/:id
+#/cart #/freight #/checkout #/pay #/membership
+#/orders #/order/:id
+#/tukang #/service/:id #/book/:service/:sku? #/quotes #/rab
+#/craftsman/:id #/job/:id #/rate/:id #/report/:id #/aftersales/:id
+#/inspiration #/inspire/:id
+#/account #/wallet #/messages #/chat/:id
 ```
 
 All of the above are implemented in `app/` with EN/ID strings in `app/js/i18n.js`.

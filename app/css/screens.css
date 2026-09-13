@@ -327,3 +327,79 @@ textarea.field { min-height: 84px; resize: vertical; }
 .kpi { text-align: center; padding: 10px 4px; }
 .kpi b { display: block; font-size: 16px; }
 .kpi span { font-size: 10px; color: var(--muted); }
+
+.stack { display: grid; gap: 8px; }
+.store-card {
+  width: 100%;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  border: 0;
+}
+.store-card .meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+.hit { width: 100%; text-align: left; border: 0; margin-bottom: 8px; }
+.combo-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.combo-row .meta { font-size: 11px; color: var(--muted); }
+.combo-row .toggle {
+  font-size: 11px; font-weight: 800;
+  background: #e7e5e4; color: #44403c;
+  border-radius: 999px; padding: 4px 10px;
+}
+.combo-row.on .toggle { background: #ccfbf1; color: #115e59; }
+
+.map-fake {
+  height: 88px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #0f766e;
+  background:
+    linear-gradient(135deg, rgba(15,118,110,.12), transparent),
+    repeating-linear-gradient(0deg, #fff7ed, #fff7ed 12px, #ffedd5 12px, #ffedd5 13px);
+  margin-bottom: 10px;
+  border: 1px solid var(--line);
+}
+
+.chat-log { display: grid; gap: 8px; margin-bottom: 12px; }
+.bubble {
+  max-width: 82%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.bubble.them { background: #fff; border: 1px solid var(--line); }
+.bubble.me { background: #c2410c; color: #fff; margin-left: auto; }
+
+.chat-composer { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
+
+.wrap-ic { position: relative; }
+.mini-badge {
+  position: absolute;
+  top: -6px; right: -10px;
+  min-width: 16px; height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--brick);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+.cart-hit { position: relative; }
+.cart-hit .mini-badge { right: -4px; top: -4px; }
+
+.live input { caret-color: var(--brick); }

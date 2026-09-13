@@ -7,14 +7,18 @@ const Router = {
     const [name, a, b] = raw.split("/");
     const known = new Set([
       "home", "mall", "product", "cart", "checkout", "pay", "membership",
-      "orders", "order", "tukang", "book", "quotes", "craftsman", "job", "rate", "account"
+      "orders", "order", "tukang", "book", "quotes", "craftsman", "job", "rate", "account",
+      "search", "category", "store", "service", "inspiration", "inspire",
+      "messages", "chat", "aftersales", "rab", "freight", "wallet", "report"
     ]);
     if (!known.has(name)) return { name: "home", params: {} };
-    if (name === "product") return { name, params: { id: a } };
-    if (name === "order") return { name, params: { id: a } };
+    if (name === "product" || name === "category" || name === "store" || name === "service" || name === "inspire") {
+      return { name, params: { id: a } };
+    }
+    if (name === "order" || name === "craftsman" || name === "job" || name === "rate" || name === "chat" || name === "aftersales" || name === "rab" || name === "report") {
+      return { name, params: { id: a } };
+    }
     if (name === "book") return { name, params: { service: a, sku: b } };
-    if (name === "craftsman") return { name, params: { id: a } };
-    if (name === "job" || name === "rate") return { name, params: { id: a } };
     return { name, params: {} };
   },
 
@@ -45,9 +49,9 @@ const Router = {
 };
 
 function tabFor(name) {
-  if (["mall", "product", "cart", "checkout", "pay", "membership"].includes(name)) return "mall";
-  if (["tukang", "book", "quotes", "craftsman", "job", "rate"].includes(name)) return "tukang";
+  if (["mall", "product", "cart", "checkout", "pay", "membership", "category", "store", "search", "freight"].includes(name)) return "mall";
+  if (["tukang", "book", "quotes", "craftsman", "job", "rate", "service", "inspiration", "inspire", "rab", "aftersales", "report"].includes(name)) return "tukang";
   if (["orders", "order"].includes(name)) return "orders";
-  if (name === "account") return "account";
+  if (["account", "messages", "chat", "wallet"].includes(name)) return "account";
   return "home";
 }

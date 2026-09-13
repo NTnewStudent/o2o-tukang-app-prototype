@@ -26,7 +26,7 @@ BataTukang is that fusion.
 ## 2. Design principles
 
 1. **One member, two order types.** GoodsOrder (CRMEB) and ServiceOrder (Tukang/Wanshifu) share wallet, address, language, and tier.  
-2. **Member price is visible before pay.** List → tier price → coupons → points (CRMEB v4.2 math).  
+2. **Member price is visible before pay.** List → tier price → coupons → points (CRMEB 多店 member-price-first; combo pay is v4.1).  
 3. **Fulfillment is a timeline, not a status noun.** Paid → packed at *named store* → rider → delivered → *installable*.  
 4. **Every installable SKU carries a verb.** Deliver / pickup / measure / install / repair / tear-out (Wanshifu).  
 5. **Three hire modes, not one.** Fixed daily (一口价 / harian), quote compare (报价 / minat), project RAB + escrow (borongan / 总包-like).  

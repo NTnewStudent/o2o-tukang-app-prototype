@@ -7,6 +7,7 @@ const I18N = {
       back: "Back",
       seeAll: "See all",
       search: "Search cement, tile, tukang…",
+      cart: "Cart",
       addCart: "Add to cart",
       buy: "Buy now",
       checkout: "Checkout",
@@ -52,21 +53,24 @@ const I18N = {
       hot: "Installable SKUs",
       mitra: "Top-rated mitra",
       openMall: "Open aisle",
-      openTukang: "All services"
+      openTukang: "All services",
+      inspire: "Looks to bring home"
     },
     mall: {
       title: "Mall & stores",
       switch: "Fulfill from",
       aisles: "Aisles",
-      fence: "Same-city delivery inside 8 km of this store.",
-      pickupHint: "Scan QR at the timber counter."
+      fence: "Same-city delivery inside this store's fence (radius / admin / geofence).",
+      pickupHint: "Scan QR at the timber counter.",
+      expressHint: "Far stores use express/truck — CRMEB 快递 / 商城配送."
     },
     product: {
       title: "Product",
-      memberPrice: "Gold member price",
+      memberPrice: "Member price",
       stockAt: "Stock at",
-      o2o: "O2O: city delivery + pickup enabled (CRMEB pattern).",
-      bookInstall: "Book installer for this SKU"
+      o2o: "O2O: city delivery + express + pickup (CRMEB 多店 v4.1).",
+      bookInstall: "Book installer for this SKU",
+      stockCompare: "Stock across stores"
     },
     cart: {
       title: "Cart",
@@ -83,8 +87,11 @@ const I18N = {
       pickAt: "Pick up at",
       addr: "Jl. Melawai Raya 18, Kebayoran Baru",
       hours: "Today 08:00–21:00",
-      tierNote: "Member price applied first, then delivery waive for Gold+ carts ≥ Rp 150k.",
-      payCta: "Continue to payment"
+      tierNote: "Member price first (CRMEB), then coupons/points. Gold+ city-delivery waive ≥ Rp 150k.",
+      payCta: "Continue to payment",
+      slot: "Delivery slot",
+      freightLink: "Freight breakdown",
+      comboNote: "v4.1 combo: Saldo Bata + QRIS/VA if wallet is short."
     },
     pay: {
       title: "Pay",
@@ -94,7 +101,11 @@ const I18N = {
       wallet: "Saldo Bata",
       cod: "Cash at pickup / after service",
       secure: "Goods settle now. Install jobs use escrow until you accept photos.",
-      success: "Payment received"
+      success: "Payment received",
+      combo: "Combo pay (CRMEB v4.1)",
+      comboHint: "Use Saldo first; remainder on the selected rail.",
+      walletUse: "From Saldo Bata",
+      remainder: "Remainder"
     },
     membership: {
       title: "Membership",
@@ -146,7 +157,11 @@ const I18N = {
       quote: "Quote compare",
       project: "Project + RAB",
       window: "Mitra interest window: 2 hours. Pick within 60 minutes or rebook.",
-      from: "Call-out from Rp 150.000 (jasa only)."
+      from: "Call-out from Rp 150.000 (jasa only).",
+      all: "All 23+",
+      maint: "Home maintenance",
+      reno: "Build & renovate",
+      design: "Design inspiration"
     },
     book: {
       title: "Book service",
@@ -207,7 +222,88 @@ const I18N = {
       addr: "Addresses",
       wallet: "Saldo Bata · Rp 180.000",
       docs: "Research & blueprint",
-      legal: "Trust: escrow, retensi, store-named logistics"
+      legal: "Trust: escrow, retensi, store-named logistics",
+      messages: "Messages & CS",
+      after: "After-sales / retensi"
+    },
+    search: {
+      title: "Search",
+      products: "Mall SKUs",
+      services: "Tukang services",
+      empty: "No matches. Try semen, ledeng, or kunci."
+    },
+    category: { title: "Aisle" },
+    store: {
+      title: "Store",
+      hours: "Hours",
+      fence: "City-delivery fence",
+      pickup: "Show QR at timber / sanitary counter",
+      switch: "Fulfill from this store",
+      express: "Outside fence → express / truck (CRMEB 商城配送)"
+    },
+    fulfill: {
+      city: "City delivery",
+      express: "Express / truck",
+      pickup: "Store pickup",
+      slot: "Choose slot",
+      freight: "Freight detail",
+      base: "Base fee",
+      dist: "Distance",
+      weight: "Weight surcharge",
+      waive: "Gold+ waive",
+      list: "List freight"
+    },
+    service: {
+      title: "Service card",
+      lanjut: "Continue · Lanjut",
+      duration: "Harian: 6 clean hours · jasa only. Project: survey + RAB.",
+      materials: "Materials not included unless pinned from mall."
+    },
+    inspiration: {
+      title: "Design inspiration",
+      lead: "Tukang.com third pillar — bring a look home, then book design or install.",
+      book: "Book this look"
+    },
+    messages: {
+      title: "Messages",
+      cs: "BataTukang CS",
+      job: "Job chat",
+      empty: "No threads yet."
+    },
+    chat: {
+      title: "Chat",
+      ph: "Type a message…",
+      send: "Send",
+      auto: "Noted. We will update the order timeline."
+    },
+    aftersales: {
+      title: "After-sales",
+      lead: "Retensi window (Tukang) + 先行赔付-style remedy (万师傅 / Platinum).",
+      complain: "Open complaint",
+      window: "Daily jobs: 1×24h. Project: 7–30 days. Mid-job vendor swap via CS.",
+      submit: "Submit complaint",
+      thanks: "Complaint ticket opened. CS will reply in Messages.",
+      reservice: "Request re-service",
+      report: "Download documentation report"
+    },
+    rab: {
+      title: "RAB review",
+      lead: "In-app bill of quantities — Tukang analyst-checked, no side-channel price.",
+      labor: "Labor",
+      material: "Materials (chain SKUs)",
+      total: "RAB total",
+      accept: "Accept RAB & escrow",
+      buy: "Add materials to cart"
+    },
+    report: {
+      title: "Project report",
+      lead: "Tukang v4.3.1-style documentation pack. Unlock escrow after accept.",
+      download: "Download PDF (demo)"
+    },
+    wallet: {
+      title: "Saldo Bata",
+      balance: "Available",
+      hint: "Combo pay uses this first (CRMEB v4.1). Cash-out via CS (Tukang Saldo pattern)."
     },
     cls: { tukang: "Tukang", specialist: "Specialist", contractor: "Contractor" },
     status: {
@@ -225,6 +321,7 @@ const I18N = {
       back: "Kembali",
       seeAll: "Lihat semua",
       search: "Cari semen, keramik, tukang…",
+      cart: "Keranjang",
       addCart: "Keranjang",
       buy: "Beli sekarang",
       checkout: "Bayar",
@@ -270,21 +367,24 @@ const I18N = {
       hot: "SKU yang bisa dipasang",
       mitra: "Mitra rating tertinggi",
       openMall: "Buka lorong",
-      openTukang: "Semua layanan"
+      openTukang: "Semua layanan",
+      inspire: "Gaya untuk dibawa pulang"
     },
     mall: {
       title: "Mal & toko",
       switch: "Penuhi dari",
       aisles: "Lorong",
-      fence: "Kirim dalam kota radius 8 km dari toko ini.",
-      pickupHint: "Tunjukkan QR di konter kayu."
+      fence: "Kirim dalam kota di dalam pagar toko ini (radius / wilayah / geofence).",
+      pickupHint: "Tunjukkan QR di konter kayu.",
+      expressHint: "Toko jauh memakai ekspedisi/truk — CRMEB 快递 / 商城配送."
     },
     product: {
       title: "Produk",
-      memberPrice: "Harga member Gold",
+      memberPrice: "Harga member",
       stockAt: "Stok di",
-      o2o: "O2O: kirim dalam kota + ambil toko (pola CRMEB).",
-      bookInstall: "Pesan tukang untuk SKU ini"
+      o2o: "O2O: kirim kota + ekspedisi + ambil toko (CRMEB 多店 v4.1).",
+      bookInstall: "Pesan tukang untuk SKU ini",
+      stockCompare: "Stok antar toko"
     },
     cart: {
       title: "Keranjang",
@@ -301,8 +401,11 @@ const I18N = {
       pickAt: "Ambil di",
       addr: "Jl. Melawai Raya 18, Kebayoran Baru",
       hours: "Hari ini 08.00–21.00",
-      tierNote: "Harga member dihitung dulu, lalu ongkir gratis untuk Gold+ jika belanja ≥ Rp 150rb.",
-      payCta: "Lanjut pembayaran"
+      tierNote: "Harga member dulu (CRMEB), lalu kupon/poin. Gold+ bebas ongkir kota ≥ Rp 150rb.",
+      payCta: "Lanjut pembayaran",
+      slot: "Slot kirim",
+      freightLink: "Rincian ongkir",
+      comboNote: "Kombo v4.1: Saldo Bata + QRIS/VA jika saldo kurang."
     },
     pay: {
       title: "Bayar",
@@ -312,7 +415,11 @@ const I18N = {
       wallet: "Saldo Bata",
       cod: "Tunai saat ambil / setelah jasa",
       secure: "Barang lunas sekarang. Jasa pasang memakai escrow sampai Anda terima foto.",
-      success: "Pembayaran diterima"
+      success: "Pembayaran diterima",
+      combo: "Bayar kombo (CRMEB v4.1)",
+      comboHint: "Pakai Saldo dulu; sisanya di metode yang dipilih.",
+      walletUse: "Dari Saldo Bata",
+      remainder: "Sisa"
     },
     membership: {
       title: "Keanggotaan",
@@ -364,7 +471,11 @@ const I18N = {
       quote: "Bandingkan penawaran",
       project: "Proyek + RAB",
       window: "Jendela minat mitra: 2 jam. Pilih dalam 60 menit atau pesan ulang.",
-      from: "Tarif panggil dari Rp 150.000 (jasa saja)."
+      from: "Tarif panggil dari Rp 150.000 (jasa saja).",
+      all: "Semua 23+",
+      maint: "Pemeliharaan rumah",
+      reno: "Bangun & renovasi",
+      design: "Inspirasi desain"
     },
     book: {
       title: "Pesan jasa",
@@ -425,7 +536,88 @@ const I18N = {
       addr: "Alamat",
       wallet: "Saldo Bata · Rp 180.000",
       docs: "Riset & cetak biru",
-      legal: "Kepercayaan: escrow, retensi, logistik bernama toko"
+      legal: "Kepercayaan: escrow, retensi, logistik bernama toko",
+      messages: "Pesan & CS",
+      after: "Purna jual / retensi"
+    },
+    search: {
+      title: "Cari",
+      products: "SKU mal",
+      services: "Layanan tukang",
+      empty: "Tidak ada. Coba semen, ledeng, atau kunci."
+    },
+    category: { title: "Lorong" },
+    store: {
+      title: "Toko",
+      hours: "Jam",
+      fence: "Pagar kirim kota",
+      pickup: "Tunjukkan QR di konter kayu / saniter",
+      switch: "Penuhi dari toko ini",
+      express: "Di luar pagar → ekspedisi / truk (CRMEB 商城配送)"
+    },
+    fulfill: {
+      city: "Kirim dalam kota",
+      express: "Ekspedisi / truk",
+      pickup: "Ambil di toko",
+      slot: "Pilih slot",
+      freight: "Rincian ongkir",
+      base: "Ongkir dasar",
+      dist: "Jarak",
+      weight: "Tambahan berat",
+      waive: "Bebas Gold+",
+      list: "Ongkir normal"
+    },
+    service: {
+      title: "Kartu layanan",
+      lanjut: "Lanjut",
+      duration: "Harian: 6 jam bersih · jasa saja. Proyek: survei + RAB.",
+      materials: "Bahan tidak termasuk kecuali dipin dari mal."
+    },
+    inspiration: {
+      title: "Inspirasi desain",
+      lead: "Pilar ketiga Tukang.com — bawa gaya ke rumah, lalu pesan desain atau pasang.",
+      book: "Pesan gaya ini"
+    },
+    messages: {
+      title: "Pesan",
+      cs: "CS BataTukang",
+      job: "Chat pekerjaan",
+      empty: "Belum ada percakapan."
+    },
+    chat: {
+      title: "Chat",
+      ph: "Tulis pesan…",
+      send: "Kirim",
+      auto: "Catat. Kami perbarui linimasa pesanan."
+    },
+    aftersales: {
+      title: "Purna jual",
+      lead: "Jendela retensi (Tukang) + ganti rugi gaya 先行赔付 (万师傅 / Platinum).",
+      complain: "Buka komplain",
+      window: "Harian: 1×24 jam. Proyek: 7–30 hari. Ganti mitra di tengah lewat CS.",
+      submit: "Kirim komplain",
+      thanks: "Tiket komplain dibuka. CS membalas di Pesan.",
+      reservice: "Minta kerja ulang",
+      report: "Unduh laporan dokumentasi"
+    },
+    rab: {
+      title: "Tinjau RAB",
+      lead: "Rencana anggaran di aplikasi — dicek analis Tukang, tanpa harga di luar kanal.",
+      labor: "Upah",
+      material: "Bahan (SKU rantai)",
+      total: "Total RAB",
+      accept: "Terima RAB & escrow",
+      buy: "Masukkan bahan ke keranjang"
+    },
+    report: {
+      title: "Laporan proyek",
+      lead: "Paket dokumentasi gaya Tukang v4.3.1. Cairkan escrow setelah diterima.",
+      download: "Unduh PDF (demo)"
+    },
+    wallet: {
+      title: "Saldo Bata",
+      balance: "Tersedia",
+      hint: "Bayar kombo memakai ini dulu (CRMEB v4.1). Cairkan lewat CS (pola Saldo Tukang)."
     },
     cls: { tukang: "Tukang", specialist: "Spesialis", contractor: "Kontraktor" },
     status: {

@@ -19,9 +19,13 @@
         #fff7ed;
     }
     .wrap { max-width: 980px; margin: 0 auto; padding: 48px 20px 80px; }
+    .bar { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .lang { display:flex; background:#fff; border:1px solid #fed7aa; border-radius:999px; overflow:hidden; }
+    .lang button { border:0; background:transparent; padding:6px 12px; font-weight:800; cursor:pointer; color:#78716c; }
+    .lang button.active { background:#1c1917; color:#fff; }
     .eyebrow { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brick); }
     h1 { font-size: clamp(32px, 6vw, 52px); letter-spacing: -0.04em; margin: 8px 0 12px; }
-    .lead { font-size: 18px; line-height: 1.5; max-width: 640px; color: #44403c; }
+    .lead { font-size: 18px; line-height: 1.5; max-width: 720px; color: #44403c; }
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 32px 0; }
     a.card {
       display: block; text-decoration: none; color: inherit;
@@ -38,45 +42,83 @@
     ul.check li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
     .docs a { color: var(--teal); font-weight: 700; }
     footer { margin-top: 40px; font-size: 13px; color: #78716c; }
+    code { background:#ffedd5; padding:1px 6px; border-radius:6px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="eyebrow">Public prototype · EN + Bahasa Indonesia</div>
+    <div class="bar">
+      <div class="eyebrow" data-k="eyebrow">Public HTML artifacts · EN + Bahasa Indonesia</div>
+      <div class="lang">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="id">ID</button>
+      </div>
+    </div>
     <h1>BataTukang</h1>
-    <p class="lead">Integrated O2O building-materials supermarket + online mall + membership pricing + live delivery + Tukang / 万师傅-style installer marketplace. App-only HTML prototype fused conceptually with CRMEB multi-store commerce objects.</p>
+    <p class="lead" data-k="lead">Integrated O2O building-materials supermarket + online mall + membership pricing + live delivery + Tukang / 万师傅-style installer marketplace. App-only HTML prototype fused with CRMEB 连锁多门店 v4.1 commerce objects.</p>
     <div class="cards">
       <a class="card primary" href="app/">
-        <strong>Open App prototype</strong>
-        <span>Phone-framed SPA · mall, pay, membership, delivery timeline, book tukang, quotes, job track, ratings.</span>
+        <strong data-k="appT">Open App prototype</strong>
+        <span data-k="appD">Phone-framed SPA · search, multi-store, PDP, combo pay, delivery slots, 23+ tukang categories, quotes, RAB, chat, after-sales.</span>
       </a>
       <a class="card" href="mindmap/mindmap.html">
-        <strong>Business-flow mind map</strong>
-        <span>Interactive spine: member buy → pay → tier price → delivery feedback → install/repair.</span>
+        <strong data-k="mapT">Business-flow mind map</strong>
+        <span data-k="mapD">Interactive spine: member buy → pay → tier price → delivery feedback → install/repair → retensi.</span>
       </a>
-      <a class="card" href="docs/product-blueprint.md">
-        <strong>Product blueprint</strong>
-        <span>How the three sources merge into one IA and two order types.</span>
+      <a class="card" href="docs/index.html">
+        <strong data-k="docT">Research notes</strong>
+        <span data-k="docD">Tukang.com, 万师傅, CRMEB 多店 v4.1 — public sources only. No private API access.</span>
       </a>
     </div>
-    <h2>Research</h2>
-    <p class="docs">
-      <a href="docs/research/tukang.md">Tukang.com</a> ·
-      <a href="docs/research/wanshifu.md">万师傅 (Wanshifu)</a> ·
-      <a href="docs/research/crmeb-multistore.md">CRMEB multi-store</a> ·
-      <a href="docs/ia-map.md">IA map</a>
-    </p>
-    <h2>Coverage vs brief</h2>
+    <h2 data-k="cov">Coverage vs brief</h2>
     <ul class="check">
-      <li>Deep research on Tukang roles, booking, quotes, lifecycle, ratings, payments, trust</li>
-      <li>万师傅 categories, dispatch modes, escrow, after-sales / 先行赔付</li>
-      <li>CRMEB store model, member levels, member-price-first, pickup + city delivery</li>
-      <li>App-only interactive prototype, ~390px phone chrome, bottom tabs, polished UI</li>
-      <li>Bilingual English + Indonesian with in-app toggle (primary flows fully keyed)</li>
-      <li>Interactive HTML mind map of the fused business flow</li>
-      <li>Public GitHub Pages URLs on this hub, <code>/app/</code>, and <code>/mindmap/mindmap.html</code></li>
+      <li data-k="c1">Mall: home, multi-store, category/search, PDP, cart, checkout/pay, membership prices, delivery feedback</li>
+      <li data-k="c2">Craftsman: 23+ specializations, book, quote/fixed/RAB, profiles, job status, chat, after-sales</li>
+      <li data-k="c3">Unified account + EN/ID toggle across hub, app, and mind map</li>
+      <li data-k="c4">HTML files sit in the repo workspace (Gateway-producible artifacts). Pages publish is secondary.</li>
     </ul>
     <footer>Repo: github.com/NTnewStudent/o2o-tukang-app-prototype · Not affiliated with Tukang.com, 万师傅, or CRMEB.</footer>
   </div>
+  <script>
+    const H = {
+      en: {
+        eyebrow: "Public HTML artifacts · EN + Bahasa Indonesia",
+        lead: "Integrated O2O building-materials supermarket + online mall + membership pricing + live delivery + Tukang / 万师傅-style installer marketplace. App-only HTML prototype fused with CRMEB chain multi-store v4.1 commerce objects.",
+        appT: "Open App prototype",
+        appD: "Phone-framed SPA · search, multi-store, PDP, combo pay, delivery slots, 23+ tukang categories, quotes, RAB, chat, after-sales.",
+        mapT: "Business-flow mind map",
+        mapD: "Interactive spine: member buy → pay → tier price → delivery feedback → install/repair → retensi.",
+        docT: "Research notes",
+        docD: "Tukang.com, 万师傅, CRMEB multi-store v4.1 — public sources only. No private API access.",
+        cov: "Coverage vs brief",
+        c1: "Mall: home, multi-store, category/search, PDP, cart, checkout/pay, membership prices, delivery feedback",
+        c2: "Craftsman: 23+ specializations, book, quote/fixed/RAB, profiles, job status, chat, after-sales",
+        c3: "Unified account + EN/ID toggle across hub, app, and mind map",
+        c4: "HTML files sit in the repo workspace (Gateway-producible artifacts). Pages publish is secondary."
+      },
+      id: {
+        eyebrow: "Artefak HTML publik · EN + Bahasa Indonesia",
+        lead: "Supermarket bahan bangunan O2O + mal daring + harga member + lacak kiriman + pasar tukang gaya Tukang / 万师傅. Prototipe App HTML, objek dagang CRMEB rantai multi-toko v4.1.",
+        appT: "Buka prototipe App",
+        appD: "SPA bingkai ponsel · cari, multi-toko, PDP, bayar kombo, slot kirim, 23+ kategori tukang, kuotasi, RAB, chat, purna jual.",
+        mapT: "Peta alur bisnis",
+        mapD: "Tulang punggung: beli member → bayar → harga tingkat → umpan balik kiriman → pasang/perbaiki → retensi.",
+        docT: "Catatan riset",
+        docD: "Tukang.com, 万师傅, CRMEB multi-toko v4.1 — sumber publik saja. Tanpa akses API privat.",
+        cov: "Cakupan vs brief",
+        c1: "Mal: beranda, multi-toko, kategori/cari, PDP, keranjang, kasir/bayar, harga member, umpan balik kiriman",
+        c2: "Tukang: 23+ spesialisasi, pesan, kuotasi/tetap/RAB, profil, status kerja, chat, purna jual",
+        c3: "Akun terpadu + sakelar EN/ID di hub, app, dan peta pikiran",
+        c4: "File HTML ada di workspace repo (artefak yang bisa dihasilkan Gateway). Pages bersifat sekunder."
+      }
+    };
+    let lang = "en";
+    function paint() {
+      document.querySelectorAll("[data-k]").forEach((el) => { el.textContent = H[lang][el.dataset.k]; });
+      document.querySelectorAll(".lang button").forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
+      document.documentElement.lang = lang;
+    }
+    document.querySelectorAll(".lang button").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; paint(); }));
+  </script>
 </body>
 </html>

@@ -24,6 +24,15 @@ Tukang.com is an **app-only booking platform** for home maintenance, build/renov
 
 Official FAQ: “Tukang.com adalah platform pemesanan tukang… berdasarkan bidang keahlian kerja (spesialisasi).” Orders **cannot** be placed on the marketing website — only via iOS/Android app.
 
+**Marketing site (tukang.com, observed Sep 2026)** adds product language we reuse in IA, not as private APIs:
+
+- Search services → competitive quotes verified by Tukang.com  
+- Digital work in place (contractual guarantee)  
+- Secure pay: VA / card / installment  
+- **Progress disbursement** to Mitra as the project advances  
+- Easy tracking + verified Mitra + retention/guarantee copy  
+- Play listing v4.3.1 (27 Jun 2025): **cash for home-maintenance inspection**; **download Project Documentation Report**; OTP via SMS or WhatsApp (4.2.2)
+
 ---
 
 ## 2. Roles

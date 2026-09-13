@@ -23,10 +23,34 @@ function render() {
     b.classList.toggle("active", b.dataset.lang === AppState.lang());
   });
   document.getElementById("clock").textContent = t("time");
+  const badge = document.getElementById("cart-badge");
+  if (badge) {
+    const n = AppState.cartCount();
+    badge.textContent = n;
+    badge.style.display = n ? "grid" : "none";
+  }
 
-  const hideTabs = ["checkout", "pay", "book", "quotes", "craftsman", "rate"].includes(route.name);
+  const hideTabs = ["checkout", "pay", "book", "quotes", "craftsman", "rate", "service", "rab", "freight", "chat", "aftersales", "report", "inspire"].includes(route.name);
   document.getElementById("tabbar").style.display = hideTabs ? "none" : "grid";
   body.classList.toggle("no-tabs", hideTabs);
+
+  const q = document.getElementById("search-q");
+  if (q) {
+    q.focus();
+    q.addEventListener("input", () => {
+      AppState.set({ searchQ: q.value });
+      const { products, services } = searchCatalog(q.value);
+      const keep = q.value;
+      render();
+      const nq = document.getElementById("search-q");
+      if (nq) {
+        nq.value = keep;
+        nq.focus();
+        nq.setSelectionRange(keep.length, keep.length);
+      }
+      void products; void services;
+    });
+  }
 }
 
 function bind() {
@@ -34,6 +58,7 @@ function bind() {
     const go = e.target.closest("[data-go]");
     if (go) {
       e.preventDefault();
+      if (go.dataset.store) AppState.set({ storeId: go.dataset.store });
       Router.go(go.getAttribute("data-go"));
       return;
     }
@@ -61,6 +86,18 @@ function bind() {
       render();
       return;
     }
+    const slot = e.target.closest("[data-slot]");
+    if (slot) {
+      AppState.set({ slotId: slot.dataset.slot });
+      render();
+      return;
+    }
+    const pillar = e.target.closest("[data-pillar]");
+    if (pillar) {
+      AppState.set({ tukangPillar: pillar.dataset.pillar });
+      render();
+      return;
+    }
     const pay = e.target.closest("[data-pay]");
     if (pay) {
       AppState.set({ payMethod: pay.dataset.pay });
@@ -78,6 +115,7 @@ function bind() {
     if (add) {
       AppState.addToCart(add.dataset.add, 1);
       toast(t("common.addCart"));
+      render();
       return;
     }
     const buy = e.target.closest("[data-buy]");
@@ -131,6 +169,11 @@ function bind() {
     }
     const action = e.target.closest("[data-action]");
     if (action) {
+      if (action.dataset.action === "toggle-combo") {
+        AppState.set({ comboPay: !AppState.data.comboPay });
+        render();
+        return;
+      }
       if (action.dataset.action === "pay-goods") {
         if (!AppState.cartLines().length) {
           toast(t("cart.empty"));
@@ -144,14 +187,57 @@ function bind() {
       }
       if (action.dataset.action === "find-quotes") {
         const addr = document.getElementById("job-addr");
-        if (addr && AppState.data.draftJob) AppState.data.draftJob.address = addr.value;
+        const notes = document.getElementById("job-notes");
+        if (AppState.data.draftJob) {
+          if (addr) AppState.data.draftJob.address = addr.value;
+          if (notes) AppState.data.draftJob.notes = notes.value;
+        }
         AppState.save();
         Router.go("quotes");
+        return;
+      }
+      if (action.dataset.action === "open-rab") {
+        const addr = document.getElementById("job-addr");
+        if (addr && AppState.data.draftJob) AppState.data.draftJob.address = addr.value;
+        AppState.save();
+        Router.go("rab");
+        return;
+      }
+      if (action.dataset.action === "rab-cart") {
+        RAB_LINES.filter((l) => l.skuId).forEach((l) => AppState.addToCart(l.skuId, 1));
+        toast(t("rab.buy"));
+        Router.go("cart");
+        return;
+      }
+      if (action.dataset.action === "rab-accept") {
+        const job = AppState.placeJob((craftsmenFor((AppState.data.draftJob || {}).service || "tile")[0] || CRAFTSMEN[0]).id);
+        toast(t("pay.success"));
+        Router.go("job/" + job.id);
         return;
       }
       if (action.dataset.action === "submit-rate") {
         toast(t("rate.thanks"));
         Router.go("orders");
+        return;
+      }
+      if (action.dataset.action === "send-chat") {
+        const input = document.getElementById("chat-in");
+        const text = (input && input.value.trim()) || t("chat.auto");
+        AppState.addChat(action.dataset.thread, text);
+        const thread = action.dataset.thread;
+        if (!AppState.data.chats[thread]) AppState.data.chats[thread] = [];
+        AppState.data.chats[thread].push({ who: "cs", en: t("chat.auto"), idn: t("chat.auto") });
+        AppState.save();
+        render();
+        return;
+      }
+      if (action.dataset.action === "complain" || action.dataset.action === "reservice") {
+        toast(t("aftersales.thanks"));
+        Router.go("messages");
+        return;
+      }
+      if (action.dataset.action === "dl-report") {
+        toast(t("report.download"));
       }
     }
   });
