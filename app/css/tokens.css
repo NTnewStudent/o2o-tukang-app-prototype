@@ -29,7 +29,8 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  word-spacing: 0.02em;
   color: var(--ink);
   background:
     radial-gradient(1200px 600px at 10% -10%, #fdba74 0%, transparent 50%),

@@ -151,7 +151,7 @@ const I18N = {
     },
     tukang: {
       title: "Tukang platform",
-      lead: "100+ home jobs in spirit — 10 specializations in this prototype. Inspired by Tukang.com + 万师傅.",
+      lead: "Tukang.com’s 23 specializations + reno bundle, in three pillars. Inspired by Tukang.com + 万师傅.",
       modes: "Hire modes",
       fixed: "Fixed / harian",
       quote: "Quote compare",
@@ -465,7 +465,7 @@ const I18N = {
     },
     tukang: {
       title: "Platform tukang",
-      lead: "Semangat 100+ jenis kerja — 10 spesialisasi di prototipe ini. Terinspirasi Tukang.com + 万师傅.",
+      lead: "23 spesialisasi Tukang.com + paket renovasi, tiga pilar. Terinspirasi Tukang.com + 万师傅.",
       modes: "Mode rekrut",
       fixed: "Harian / harga tetap",
       quote: "Bandingkan penawaran",

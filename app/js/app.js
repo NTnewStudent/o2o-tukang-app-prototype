@@ -245,6 +245,8 @@ function bind() {
 
 document.addEventListener("DOMContentLoaded", () => {
   AppState.load();
+  const q = new URLSearchParams(location.search);
+  if (q.get("lang") === "id" || q.get("lang") === "en") AppState.setLang(q.get("lang"));
   bind();
   Router.on(render);
   Router.start();

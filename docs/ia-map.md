@@ -60,7 +60,7 @@ Language toggle lives in the **phone chrome** (global), not inside one tab.
 
 | Screen | Source | Notes |
 |---|---|---|
-| `#/tukang` | Tukang home + Wanshifu verbs | 23-style specializations, collapsed to 10 for proto |
+| `#/tukang` | Tukang home + Wanshifu verbs | 23 official specializations + reno bundle, filterable by pillar |
 | `#/book/:service` | Job form | Address, photos, mode = fixed/quote/project, SKU pin |
 | `#/quotes/:job` | Interest list / 报价 | 2–3 cards, 2h window copy, 60m pick reminder |
 | `#/craftsman/:id` | Mitra profile | Class, skills, rating, sample jobs |
